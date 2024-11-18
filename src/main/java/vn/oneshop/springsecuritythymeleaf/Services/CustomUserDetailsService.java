@@ -5,6 +5,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 import vn.oneshop.springsecuritythymeleaf.entity.Role;
 import vn.oneshop.springsecuritythymeleaf.entity.Users;
 import vn.oneshop.springsecuritythymeleaf.repository.UserRepository;
@@ -12,6 +13,7 @@ import vn.oneshop.springsecuritythymeleaf.repository.UserRepository;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+@Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     private UserRepository userRepository;

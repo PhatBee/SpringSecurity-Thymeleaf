@@ -37,8 +37,6 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private RoleRepository roleRepository;
 
     @PostMapping("/signin")
     public ResponseEntity<String> authenticateUser(@RequestBody LoginDTO loginDTO){
@@ -71,7 +69,7 @@ public class AuthController {
         user.setEnabled(true);
         user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));
 
-        Role roles = roleRepository.findByName("USER").get();
+        Role roles = RoleRepository.findByName("USER").get();
         user.setRoles(Collections.singleton(roles));
 
         userRepository.save(user);
